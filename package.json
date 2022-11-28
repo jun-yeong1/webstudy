@@ -1,19 +1,24 @@
 {
-  "name": "node_ws",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "webstudy",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jun-yeong1/webstudy.git"
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "^3.0.2",
+    "ws": "^8.11.0"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jun-yeong1/webstudy/issues"
-  },
-  "homepage": "https://github.com/jun-yeong1/webstudy#readme"
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.5",
+    "@babel/node": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.20"
+  }
 }
