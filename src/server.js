@@ -17,11 +17,13 @@ const httpServer = http.createServer(app);
 const weServer = new Server(httpServer);
 
 weServer.on("connection", (socket)=> {
+  socket.onAny((event) => {
+    console.log(`Socket Event: ${event}`);
+  })
   socket.on("enter_room", (roomName, done) => {
-    console.log(roomName);
-    setTimeout(() => {
-      done("hello backend");
-    }, 10000);
+    socket.join(roomName);
+    done(); //서버 실행
+    socket.to(roomName).emit("welcome"); //모든사람에게 보내기
   });
 });
 /*const sockets = [];
