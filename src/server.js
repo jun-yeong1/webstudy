@@ -22,10 +22,18 @@ weServer.on("connection", (socket)=> {
   })
   socket.on("enter_room", (roomName, done) => {
     socket.join(roomName);
-    done(); //서버 실행
+    done(); //front에 알리기 app.js
     socket.to(roomName).emit("welcome"); //모든사람에게 보내기
   });
+  socket.on("disconnecting", () => {
+    socket.rooms.forEach(room => socket.to(room).emit("bye"));
+  });
+  socket.on("new_message", (msg, room, done) => {
+    socket.to(room).emit("new_message", msg);
+    done();
+  });
 });
+
 /*const sockets = [];
 
 wss.on("connection", (socket) => {
